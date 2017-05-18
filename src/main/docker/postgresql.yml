@@ -1,0 +1,11 @@
+version: '2'
+services:
+    pkaf-postgresql:
+        image: postgres:9.6.2
+        # volumes:
+        #     - ~/volumes/jhipster/pkaf/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=pkaf
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
