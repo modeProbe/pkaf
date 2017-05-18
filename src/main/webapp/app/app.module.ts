@@ -6,6 +6,7 @@ import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { PkafSharedModule, UserRouteAccessService } from './shared';
 import { PkafHomeModule } from './home/home.module';
+import { PkafSearchModule } from './search/search.module';
 import { PkafAdminModule } from './admin/admin.module';
 import { PkafAccountModule } from './account/account.module';
 import { PkafEntityModule } from './entities/entity.module';
@@ -31,6 +32,7 @@ import {
         PkafSharedModule,
         PkafHomeModule,
         PkafAdminModule,
+        PkafSearchModule,
         PkafAccountModule,
         PkafEntityModule
     ],

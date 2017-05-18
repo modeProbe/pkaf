@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "identity"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sender",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "identity"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "conv",
+            "otherEntityName": "conversation",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "identity"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "identityName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "identityPassword",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170518121651",
+    "entityTableName": "identity",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

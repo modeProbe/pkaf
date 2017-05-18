@@ -40,6 +40,13 @@ public class CacheConfiguration {
             cm.createCache(com.ippon.pkaf.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.ippon.pkaf.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.ippon.pkaf.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.ippon.pkaf.domain.Identity.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ippon.pkaf.domain.Identity.class.getName() + ".senders", jcacheConfiguration);
+            cm.createCache(com.ippon.pkaf.domain.Identity.class.getName() + ".convs", jcacheConfiguration);
+            cm.createCache(com.ippon.pkaf.domain.Conversation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ippon.pkaf.domain.Conversation.class.getName() + ".messages", jcacheConfiguration);
+            cm.createCache(com.ippon.pkaf.domain.Conversation.class.getName() + ".identities", jcacheConfiguration);
+            cm.createCache(com.ippon.pkaf.domain.Message.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

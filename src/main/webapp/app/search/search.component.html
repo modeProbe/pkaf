@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Proposez un café</h1>
+    <div class="table-responsive" *ngIf="identities">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><span>ID</span></th>
+            <th><span>Identity Name</span></th>
+            <th><span>User</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let identity of identities ;trackBy: trackId">
+            <td><a [routerLink]="['../identity', identity.id ]">{{identity.id}}</a></td>
+            <td>{{identity.identityName}}</td>
+            <td>
+                {{identity.user?.id}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>

@@ -1,6 +1,8 @@
 package com.ippon.pkaf.security;
 
+import com.ippon.pkaf.domain.Identity;
 import com.ippon.pkaf.domain.User;
+import com.ippon.pkaf.repository.IdentityRepository;
 import com.ippon.pkaf.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +27,11 @@ public class DomainUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    public DomainUserDetailsService(UserRepository userRepository) {
+    private final IdentityRepository identityRepository;
+
+    public DomainUserDetailsService(UserRepository userRepository, IdentityRepository identityRepository) {
         this.userRepository = userRepository;
+        this.identityRepository = identityRepository;
     }
 
     @Override
@@ -42,6 +47,14 @@ public class DomainUserDetailsService implements UserDetailsService {
             List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
                     .map(authority -> new SimpleGrantedAuthority(authority.getName()))
                 .collect(Collectors.toList());
+
+            if (!identityRepository.findOneByUserLogin(login).isPresent()) {
+                Identity identity = new Identity();
+                identity.setIdentityName(user.getLogin());
+                identity.setUser(user);
+                identityRepository.save(identity);
+            }
+
             return new org.springframework.security.core.userdetails.User(lowercaseLogin,
                 user.getPassword(),
                 grantedAuthorities);

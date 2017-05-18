@@ -1,0 +1,62 @@
+<div>
+    <h2>
+        <span>Identities</span>
+        <button class="btn btn-primary float-right create-identity" [routerLink]="['/', { outlets: { popup: ['identity-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Identity
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="identities">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Identity Name</span></th>
+            <th><span>Identity Password</span></th>
+            <th><span>User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let identity of identities ;trackBy: trackId">
+                <td><a [routerLink]="['../identity', identity.id ]">{{identity.id}}</a></td>
+                <td>{{identity.identityName}}</td>
+                <td>{{identity.identityPassword}}</td>
+                <td>
+                    {{identity.user?.id}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../identity', identity.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'identity/'+ identity.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'identity/'+ identity.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

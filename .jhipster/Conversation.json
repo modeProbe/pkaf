@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "message",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "conv"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "conv",
+            "relationshipName": "identity",
+            "otherEntityName": "identity",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "convName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170518121652",
+    "entityTableName": "conversation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
