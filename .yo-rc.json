@@ -17,7 +17,7 @@
     "prodDatabaseType": "postgresql",
     "searchEngine": false,
     "messageBroker": false,
-    "serviceDiscoveryType": "eureka",
+    "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSocialSignIn": false,
     "jwtSecretKey": "48174b22688edbb2b8c4531feb74d5cb39ae6ac6",
@@ -27,6 +27,7 @@
     "applicationType": "monolith",
     "testFrameworks": [],
     "jhiPrefix": "jhi",
-    "enableTranslation": false
+    "enableTranslation": false,
+    "herokuAppName": "shielded-spire-42861"
   }
 }
